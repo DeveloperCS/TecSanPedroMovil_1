@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <item
+        android:id="@+id/calif"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:checkable="false"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="Calificaciones Parciales"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/carga"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Carga Academica"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/kardex"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Kardex"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/contacto"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Contacto"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/avisos"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Avisos"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/salir"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Salir"
+        app:showAsAction="never" />
+
+</menu>
