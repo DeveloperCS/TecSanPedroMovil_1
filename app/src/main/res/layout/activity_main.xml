@@ -23,7 +23,6 @@
         android:id="@+id/txtMatricula"
         android:layout_width="300dp"
         android:layout_height="40dp"
-
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
@@ -31,7 +30,7 @@
         android:drawableLeft="@drawable/ic_action_matricula"
         android:ems="10"
         android:hint="Matricula"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@android:color/black"
         android:textSize="15dp" />
 
@@ -56,7 +55,7 @@
         android:id="@+id/txtConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lg"
+        android:layout_below="@+id/btn_entrar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:text=" Consulta Curp Aqui"
@@ -65,7 +64,7 @@
 
     <android.support.v7.widget.CardView
 
-        android:id="@+id/lg"
+        android:id="@+id/btn_entrar"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_below="@+id/txtCurp"
@@ -73,7 +72,8 @@
         app:cardCornerRadius="20dp"
         app:cardBackgroundColor="@color/blancobtnLg"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp" >
+        android:layout_marginTop="53dp"
+        android:onClick="onClick">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -90,7 +90,5 @@
                 android:textSize="24sp" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+
 </RelativeLayout>

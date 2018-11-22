@@ -4,21 +4,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 
-public class home extends AppCompatActivity {
+public class contacto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_contacto);
 
-        /*aqui implemento el toolbar (menu)*/
+
+         /*aqui implemento el toolbar (menu)*/
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Calificaciones");
+        getSupportActionBar().setTitle("Contacto");
     }
-
     /*las opciones del menu*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -26,5 +25,5 @@ public class home extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.mimenu, menu);
         return true;
     }
-}
 
+}

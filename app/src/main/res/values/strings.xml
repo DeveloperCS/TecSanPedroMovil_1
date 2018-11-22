@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TecSanPedroMovil_1</string>
+    <string name="app_name">TecSanPedroMovil</string>
+    <string name="titulo_inicial">Instituto Tecnológico Superior de San Pedro</string>
 </resources>
