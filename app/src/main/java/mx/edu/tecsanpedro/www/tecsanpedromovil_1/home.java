@@ -1,10 +1,13 @@
 package mx.edu.tecsanpedro.www.tecsanpedromovil_1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class home extends AppCompatActivity {
 
@@ -26,5 +29,38 @@ public class home extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.mimenu, menu);
         return true;
     }
+
+    /*opciones de seleccion de items del menu*/
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        Intent miintent =null;
+        switch (item.getItemId())
+        {
+            case R.id.calif:
+                Toast.makeText(this,"Calificacion",Toast.LENGTH_SHORT).show();
+                miintent=new Intent(home.this,home.class);
+                startActivity(miintent);
+                break;
+            case R.id.carga:
+                Toast.makeText(this,"Carga",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.kardex:
+                Toast.makeText(this,"kardex",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.contacto:
+                Toast.makeText(this,"Contacto",Toast.LENGTH_SHORT).show();
+                miintent= new Intent(home.this,contacto.class);
+                startActivity(miintent);
+                break;
+            case R.id.avisos:
+                Toast.makeText(this,"avisos",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.salir:
+                Toast.makeText(this,"salir",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return false;
+    }
+
 }
 

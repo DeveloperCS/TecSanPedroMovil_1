@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:checkable="false"
         android:icon="@android:drawable/ic_menu_camera"
-        android:title="Calificaciones Parciales"
+        android:title="Calificaciones"
         app:showAsAction="never" />
     <item
         android:id="@+id/carga"

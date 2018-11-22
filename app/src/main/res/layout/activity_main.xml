@@ -10,14 +10,14 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
+        android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        app:srcCompat="@drawable/logo_tec" />
+        app:srcCompat="@drawable/tecnm" />
 
     <EditText
         android:id="@+id/txtMatricula"
@@ -58,7 +58,7 @@
         android:layout_below="@+id/btn_entrar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
-        android:text=" Consulta Curp Aqui"
+        android:text="@string/link_curp"
         android:textColor="@android:color/black"
         android:textSize="12dp" />
 
