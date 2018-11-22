@@ -20,6 +20,8 @@ public class contacto extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Contacto");
+        /*barra atras*/
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     /*las opciones del menu*/
     @Override
@@ -35,6 +37,11 @@ public class contacto extends AppCompatActivity {
         Intent miintent =null;
         switch (item.getItemId())
         {
+              /*Flecha atras */
+            case android.R.id.home:
+                miintent=new Intent(this,home.class);
+                startActivity(miintent);
+                break;
             case R.id.calif:
                 Toast.makeText(this,"Calificacion",Toast.LENGTH_SHORT).show();
                  miintent =new Intent(contacto.this,home.class);
@@ -56,6 +63,7 @@ public class contacto extends AppCompatActivity {
                 break;
             case R.id.salir:
                 Toast.makeText(this,"salir",Toast.LENGTH_SHORT).show();
+                finish();
                 break;
         }
         return false;

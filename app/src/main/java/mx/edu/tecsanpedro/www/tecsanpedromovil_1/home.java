@@ -20,6 +20,8 @@ public class home extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Calificaciones");
+        /*flecha atras*/
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /*las opciones del menu*/
@@ -36,6 +38,11 @@ public class home extends AppCompatActivity {
         Intent miintent =null;
         switch (item.getItemId())
         {
+            /*Flecha atras */
+            case android.R.id.home:
+                     miintent=new Intent(this,home.class);
+                    startActivity(miintent);
+            break;
             case R.id.calif:
                 Toast.makeText(this,"Calificacion",Toast.LENGTH_SHORT).show();
                 miintent=new Intent(home.this,home.class);
@@ -57,6 +64,7 @@ public class home extends AppCompatActivity {
                 break;
             case R.id.salir:
                 Toast.makeText(this,"salir",Toast.LENGTH_SHORT).show();
+                finish();
                 break;
         }
         return false;
