@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1018367601376",
+    "firebase_url": "https://tecsanpedronnm.firebaseio.com",
+    "project_id": "tecsanpedronnm",
+    "storage_bucket": "tecsanpedronnm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018367601376:android:a4e38cca4d09f562",
+        "android_client_info": {
+          "package_name": "mx.edu.tecsanpedro.www.tecsanpedromovil_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018367601376-966djj1guhjuvtmr7ar4aloearugqdqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBppUtm2HeKCWnZD4Q1fXUzAkmwSUYimrY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
