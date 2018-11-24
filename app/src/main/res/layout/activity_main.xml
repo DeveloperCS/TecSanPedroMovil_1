@@ -48,6 +48,7 @@
         android:ems="10"
         android:hint="Curp"
         android:inputType="textPassword"
+        android:imeOptions="actionDone"
         android:selectAllOnFocus="false"
         android:singleLine="false"
         android:textSize="15dp"
