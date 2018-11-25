@@ -37,15 +37,18 @@ public class contacto extends AppCompatActivity {
         Intent miintent =null;
         switch (item.getItemId())
         {
-              /*Flecha atras */
+            /*Flecha atras */
             case android.R.id.home:
-                miintent=new Intent(this,home.class);
+                Toast.makeText(this,"Calificacion",Toast.LENGTH_SHORT).show();
+                miintent=new Intent(contacto.this,home.class);
                 startActivity(miintent);
+                finish();
                 break;
             case R.id.calif:
                 Toast.makeText(this,"Calificacion",Toast.LENGTH_SHORT).show();
-                 miintent =new Intent(contacto.this,home.class);
+                miintent=new Intent(contacto.this,home.class);
                 startActivity(miintent);
+                finish();
                 break;
             case R.id.carga:
                 Toast.makeText(this,"Carga",Toast.LENGTH_SHORT).show();
@@ -55,14 +58,18 @@ public class contacto extends AppCompatActivity {
                 break;
             case R.id.contacto:
                 Toast.makeText(this,"Contacto",Toast.LENGTH_SHORT).show();
-                 miintent = new Intent(contacto.this,contacto.class);
+                miintent= new Intent(contacto.this,contacto.class);
                 startActivity(miintent);
+                finish();
                 break;
             case R.id.avisos:
                 Toast.makeText(this,"avisos",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.salir:
-                Toast.makeText(this,"salir",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Cerro Sesión",Toast.LENGTH_SHORT).show();
+                Preferences1.guardarBoolean(contacto.this,false,Preferences1.PREFERENCE_ESTADo);
+                miintent = new Intent(contacto.this,MainActivity.class);
+                startActivity(miintent);
                 finish();
                 break;
         }

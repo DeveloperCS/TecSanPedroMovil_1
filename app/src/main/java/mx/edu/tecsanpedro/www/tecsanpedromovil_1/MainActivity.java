@@ -1,6 +1,8 @@
 package mx.edu.tecsanpedro.www.tecsanpedromovil_1;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +10,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -19,13 +22,44 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
+    //estado del radio
+    private boolean isActivadeRb;
+    private  RadioButton rbSesion ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //obtener estado de sessioon
+        if(Preferences1.obtenerBoolen(MainActivity.this,Preferences1.PREFERENCE_ESTADo))
+        {
+            Intent miintent = new Intent(this,home.class);
+            startActivity(miintent);
+            finish();
+        }
+
+        /*instanciar controladores*/
+        rbSesion = (RadioButton) findViewById(R.id.rbSesion);
+        isActivadeRb = rbSesion.isChecked();//false
+
+        rbSesion.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if(isActivadeRb)
+                {
+                    rbSesion.setChecked(false);
+                }
+                isActivadeRb = rbSesion.isChecked();
+            }
+        });
+
     }
 
+    //evento del boton
     public void onClick(View view)
     {
         /*forma de comprar campos vacios*/
@@ -46,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 public void run()
                 {
                     //le envio los parametros
-                    final String resEn = enviarPost(mat.getText().toString(),curp.getText().toString());
+                    final String resEn = enviarPost(mat.getText().toString().trim(),curp.getText().toString().trim());
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -57,9 +91,15 @@ public class MainActivity extends AppCompatActivity {
                             //validar si hay elementos
                             if(r>0)
                             {
+                                //guardamos estado de session
+                                Preferences1.guardarBoolean(MainActivity.this,rbSesion.isChecked(),Preferences1.PREFERENCE_ESTADo);
+                                //guardamos matricula para proximos usos
+                                Preferences1.guardarString(MainActivity.this,mat.getText().toString().trim(),Preferences1.PREFERENCE_Al);
+
                                 Toast.makeText(getApplicationContext(),"Entro!!",Toast.LENGTH_SHORT).show();
                                 Intent miintent = new Intent(MainActivity.this,home.class);
                                 startActivity(miintent);
+                                finish();
                             }
                             else{
                                 Toast.makeText(getApplicationContext(),"Matricula o curp incorrecto",Toast.LENGTH_SHORT).show();
