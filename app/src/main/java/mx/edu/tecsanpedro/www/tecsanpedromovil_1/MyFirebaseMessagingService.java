@@ -2,37 +2,46 @@ package mx.edu.tecsanpedro.www.tecsanpedromovil_1;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
+
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-/*
-import com.google.android.gms.common.GooglePlayServicesUtil;
+
+
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-*/
-import java.io.PipedInputStream;
 
-/**
- * Created by Dell on 22/11/2018.
- */
 
-public class MyFirebaseMessagingService /*extends FirebaseMessagingService*/ {
+import java.util.Map;
 
-   /* @Override
-    public void onMessageReceived(RemoteMessage remoteMessage) {
 
-        String msj = remoteMessage.getData().get("mensaje");
-        showNotification(msj);
+public class MyFirebaseMessagingService extends FirebaseMessagingService{
+    public MyFirebaseMessagingService() {
     }
 
-    private void showNotification(String mensaje)
-    {
-        Intent i = new Intent(this,contacto.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent prePendingIntent = PendingIntent.getActivity(this,0,1,PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this).setAutoCancel(true).setContentTitle("ds").setContentText(mensaje).setSmallIcon(R.mipmap.ic_launcher).setContentIntent(prePendingIntent);
+    @Override
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
 
-        NotificationManager manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(0,builder.build());
-    }*/
+        String result = "From : " + remoteMessage.getFrom() + "\nMessageId = " + remoteMessage.getMessageId() + "\nMessageType =  " + remoteMessage.getMessageType()
+                + "\nCollapeseKey = " + remoteMessage.getCollapseKey() + "\nTo: " + remoteMessage.getTo() + "\nTtl = " + remoteMessage.getTtl()
+                /*+"\nTitle = " + remoteMessage.getNotification().getTitle()
+                + "\nBody = " + remoteMessage.getNotification().getBody()*/ + "\nSent Time = " + remoteMessage.getSentTime();
+        Map<String, String> map = remoteMessage.getData();
+        for (String key : map.keySet())
+            result += "\n(" + key + "," + map.get(key) + ")";
+
+        Intent intent = new Intent(this, avisos.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("result", result);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setAutoCancel(true)
+                .setContentTitle("Firebase Cloud Messaging Demo")
+                .setSmallIcon(android.R.drawable.stat_notify_chat)
+                .setContentIntent(pi);
+
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(0, builder.build());
+    }
 }

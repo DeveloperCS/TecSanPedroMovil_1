@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         try
         {
             //conexion al servidor
-            URL url = new URL("http://192.168.0.13/webS/webServiceTec.php");
+            URL url = new URL("http://192.168.0.13/webS/webServiceTecLg.php");
             conec=(HttpURLConnection)url.openConnection();
             //metodo de envio
             conec.setRequestMethod("POST");
