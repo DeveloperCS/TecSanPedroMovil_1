@@ -37,7 +37,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
-                .setContentTitle("Firebase Cloud Messaging Demo")
+                .setContentTitle("Avisos Tec San Pedro")
                 .setSmallIcon(android.R.drawable.stat_notify_chat)
                 .setContentIntent(pi);
 

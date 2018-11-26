@@ -22,18 +22,19 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         matricula = Preferences1.obtenerString(this,Preferences1.PREFERENCE_Al);
+
         /*aqui implemento el toolbar (menu)*/
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Calificaciones");
-       // getSupportActionBar().setTitle(matricula);
+        //getSupportActionBar().setTitle("Calificaciones");
+       getSupportActionBar().setTitle(matricula);
         /*flecha atras*/
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /*las opciones del menu*/
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.mimenu, menu);
         return true;
@@ -51,7 +52,7 @@ public class home extends AppCompatActivity {
                 miintent=new Intent(home.this,home.class);
                 startActivity(miintent);
                 finish();
-            break;
+                break;
             case R.id.calif:
                 Toast.makeText(this,"Calificacion",Toast.LENGTH_SHORT).show();
                 miintent=new Intent(home.this,home.class);
@@ -72,6 +73,9 @@ public class home extends AppCompatActivity {
                 break;
             case R.id.avisos:
                 Toast.makeText(this,"avisos",Toast.LENGTH_SHORT).show();
+                miintent = new Intent(home.this,avisos.class);
+                startActivity(miintent);
+                finish();
                 break;
             case R.id.salir:
                 Toast.makeText(this,"Cerro Sesión",Toast.LENGTH_SHORT).show();

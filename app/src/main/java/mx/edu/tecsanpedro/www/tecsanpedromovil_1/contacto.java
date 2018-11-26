@@ -64,6 +64,9 @@ public class contacto extends AppCompatActivity {
                 break;
             case R.id.avisos:
                 Toast.makeText(this,"avisos",Toast.LENGTH_SHORT).show();
+                miintent = new Intent(contacto.this,avisos.class);
+                startActivity(miintent);
+                finish();
                 break;
             case R.id.salir:
                 Toast.makeText(this,"Cerro Sesión",Toast.LENGTH_SHORT).show();
